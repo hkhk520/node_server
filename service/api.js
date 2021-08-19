@@ -25,6 +25,16 @@ class API {
         })
     }
 
+    // 向数据库更新数据（假删除，逻辑删除）  假删除：就是改变数据库里面的某个字段，然后根据这个字段的值来查找对应的数据，实现假删除(即查找不出来)
+    updateData(modelName, values, condition) {
+        // modelName：模型名称，string
+        // values：修改的数据，object
+        // condition：指定查询条件，object
+        return model[modelName].update(values, {
+            where: condition
+        })
+    }
+
     // 事务处理
     // 回滚事务：如果执行事务处理的过程中，出现一条sql语句执行失败，则会执行事务回滚（恢复到执行事务处理之前的状态）
     // START TRANSACTION;    ROLLBACK;

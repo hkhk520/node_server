@@ -11,4 +11,8 @@ module.exports = app => {
   app.post("/sendValidCode", controller.sendValidCode);
 
   app.post("/createType", controller.createType);
+
+  app.post("/toggleTypeStatus", controller.toggleTypeStatus);
+
+  app.post("/deleteHander", controller.deleteHander);
 }
